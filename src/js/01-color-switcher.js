@@ -15,13 +15,13 @@ stopBtn.addEventListener('click', onStopClick);
 function onStartBtn() {
   colorSwitcher = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
-    startBtn.setAttribute('disabled', 'disabled');
-    stopBtn.removeAttribute('disabled', 'disabled');
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
   }, 1000);
 }
 
 function onStopClick() {
   clearInterval(colorSwitcher);
-  startBtn.removeAttribute('disabled', 'disabled');
-  stopBtn.setAttribute('disabled', 'disabled');
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
 }
