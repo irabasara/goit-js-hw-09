@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const TIMER_DELAY = 1000;
 let selectedDate = null;
@@ -26,14 +27,22 @@ const options = {
 
     if (selectedDate >= currentDate) {
       btnStart.disabled = false;
+      Report.success('Great', 'well, let`s start the timer');
       return;
     } else {
-      window.alert('Please choose a date in the future');
+      Report.failure('Error', 'Please choose a date in the future');
     }
   },
 };
 
 flatpickr(dateInput, options);
+
+setTimeout(() => {
+  Report.info(
+    'info',
+    'please, choose a date from the future and we will help you calculate the time before it'
+  );
+}, 1000);
 
 function timerStart() {
   const intervalId = setInterval(() => {
