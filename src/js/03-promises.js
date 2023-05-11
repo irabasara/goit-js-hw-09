@@ -19,14 +19,14 @@ const delayEL = document.querySelector('[name=delay]');
 const stepEL = document.querySelector('[name=step]');
 const amountEL = document.querySelector('[name=amount]');
 
-let delay = Number(delayEL.value);
-let step = Number(stepEL.value);
-let amount = Number(amountEL.value);
-
 promiseForm.addEventListener('submit', onBtnClick);
 
 function onBtnClick(event) {
   event.preventDefault();
+
+  let delay = Number(delayEL.value);
+  let step = Number(stepEL.value);
+  let amount = Number(amountEL.value);
 
   for (let i = 1; i <= amount; i += 1) {
     delay += step;
